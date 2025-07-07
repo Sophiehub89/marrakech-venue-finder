@@ -3,6 +3,7 @@ import { Search, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useTranslation } from 'react-i18next';
 
 interface SearchAndFiltersProps {
   searchTerm: string;
@@ -39,6 +40,8 @@ const SearchAndFilters = ({
   categories,
   filteredVenuesCount
 }: SearchAndFiltersProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-white rounded-2xl shadow-xl p-6 mb-8 border border-orange-100">
       {/* Search Bar */}
@@ -46,7 +49,7 @@ const SearchAndFilters = ({
         <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
         <Input
           type="text"
-          placeholder="Search venues, cities, or categories..."
+          placeholder={t('search.placeholder')}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="pl-12 pr-4 py-3 text-lg border-2 border-orange-200 focus:border-orange-400 rounded-xl"
@@ -61,10 +64,10 @@ const SearchAndFilters = ({
           className="border-orange-300 text-orange-700 hover:bg-orange-50"
         >
           <Filter className="w-4 h-4 mr-2" />
-          {showFilters ? 'Hide Filters' : 'Show Filters'}
+          {showFilters ? t('search.hideFilters') : t('search.showFilters')}
         </Button>
         <div className="text-gray-600">
-          {filteredVenuesCount} venue{filteredVenuesCount !== 1 ? 's' : ''} found
+          {t('search.venuesFound', { count: filteredVenuesCount })}
         </div>
       </div>
 
@@ -72,13 +75,13 @@ const SearchAndFilters = ({
       {showFilters && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-orange-100">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">City</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{t('filters.city')}</label>
             <Select value={selectedCity} onValueChange={setSelectedCity}>
               <SelectTrigger className="border-orange-200">
-                <SelectValue placeholder="All cities" />
+                <SelectValue placeholder={t('filters.allCities')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Cities</SelectItem>
+                <SelectItem value="all">{t('filters.allCities')}</SelectItem>
                 {cities.map(city => (
                   <SelectItem key={city} value={city}>{city}</SelectItem>
                 ))}
@@ -87,13 +90,13 @@ const SearchAndFilters = ({
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{t('filters.category')}</label>
             <Select value={selectedCategory} onValueChange={setSelectedCategory}>
               <SelectTrigger className="border-orange-200">
-                <SelectValue placeholder="All categories" />
+                <SelectValue placeholder={t('filters.allCategories')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Categories</SelectItem>
+                <SelectItem value="all">{t('filters.allCategories')}</SelectItem>
                 {categories.map(category => (
                   <SelectItem key={category} value={category}>{category}</SelectItem>
                 ))}
@@ -102,28 +105,28 @@ const SearchAndFilters = ({
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Min Rating</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{t('filters.minRating')}</label>
             <Select value={minRating} onValueChange={setMinRating}>
               <SelectTrigger className="border-orange-200">
-                <SelectValue placeholder="Any rating" />
+                <SelectValue placeholder={t('filters.anyRating')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">Any Rating</SelectItem>
-                <SelectItem value="4">4+ Stars</SelectItem>
-                <SelectItem value="4.5">4.5+ Stars</SelectItem>
-                <SelectItem value="5">5 Stars</SelectItem>
+                <SelectItem value="all">{t('filters.anyRating')}</SelectItem>
+                <SelectItem value="4">{t('filters.stars', { count: 4 })}</SelectItem>
+                <SelectItem value="4.5">{t('filters.stars', { count: 4.5 })}</SelectItem>
+                <SelectItem value="5">{t('filters.fiveStars')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Price Range</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{t('filters.priceRange')}</label>
             <Select value={priceRange} onValueChange={setPriceRange}>
               <SelectTrigger className="border-orange-200">
-                <SelectValue placeholder="Any price" />
+                <SelectValue placeholder={t('filters.anyPrice')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">Any Price</SelectItem>
+                <SelectItem value="all">{t('filters.anyPrice')}</SelectItem>
                 <SelectItem value="1k">1k-3k MAD</SelectItem>
                 <SelectItem value="3k">3k-5k MAD</SelectItem>
                 <SelectItem value="5k">5k+ MAD</SelectItem>

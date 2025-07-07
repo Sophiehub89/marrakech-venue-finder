@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "Lieux de Mariage Marocains",
+    "arabicTitle": "أماكن الزفاف المغربية",
+    "subtitle": "Découvrez les lieux les plus enchanteurs pour votre jour spécial à travers le Maroc",
+    "venues": "Lieux Premium",
+    "cities": "Villes"
+  },
+  "search": {
+    "placeholder": "Rechercher des lieux, villes ou catégories...",
+    "showFilters": "Afficher les Filtres",
+    "hideFilters": "Masquer les Filtres",
+    "venuesFound": "{{count}} lieu trouvé",
+    "venuesFound_plural": "{{count}} lieux trouvés",
+    "noVenuesTitle": "Aucun lieu trouvé",
+    "noVenuesMessage": "Essayez d'ajuster vos critères de recherche ou filtres"
+  },
+  "filters": {
+    "city": "Ville",
+    "allCities": "Toutes les Villes",
+    "category": "Catégorie",
+    "allCategories": "Toutes les Catégories",
+    "minRating": "Note Min",
+    "anyRating": "Toute Note",
+    "stars": "{{count}}+ Étoiles",
+    "fiveStars": "5 Étoiles",
+    "priceRange": "Gamme de Prix",
+    "anyPrice": "Tout Prix"
+  },
+  "venue": {
+    "viewDetails": "Voir les Détails",
+    "rating": "Note",
+    "priceRange": "Gamme de Prix",
+    "capacity": "Capacité",
+    "guests": "invités",
+    "amenities": "Équipements",
+    "location": "Localisation",
+    "contact": "Informations de Contact",
+    "phone": "Téléphone",
+    "email": "Email",
+    "website": "Site Web",
+    "backToVenues": "← Retour aux Lieux"
+  },
+  "footer": {
+    "title": "المغرب • Maroc",
+    "subtitle": "Votre mariage de rêve vous attend dans les plus beaux lieux du Maroc"
+  }
+}

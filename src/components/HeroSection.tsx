@@ -1,5 +1,7 @@
 
 import { Star, MapPin } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 interface HeroSectionProps {
   totalVenues: number;
@@ -7,6 +9,8 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ totalVenues, totalCities }: HeroSectionProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className="relative bg-gradient-to-r from-red-800 via-orange-700 to-yellow-600 text-white overflow-hidden">
       <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -15,22 +19,27 @@ const HeroSection = ({ totalVenues, totalCities }: HeroSectionProps) => {
       }}></div>
       
       <div className="relative container mx-auto px-4 py-20">
+        {/* Language Switcher */}
+        <div className="absolute top-4 right-4">
+          <LanguageSwitcher />
+        </div>
+        
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-yellow-200 to-orange-200 bg-clip-text text-transparent">
-            أماكن الزفاف المغربية
+            {t('hero.arabicTitle')}
           </h1>
           <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-            Moroccan Wedding Venues
+            {t('hero.title')}
           </h2>
           <p className="text-xl md:text-2xl mb-8 text-orange-100">
-            Discover the most enchanting venues for your special day across Morocco
+            {t('hero.subtitle')}
           </p>
           <div className="flex items-center justify-center space-x-2 text-sm">
             <Star className="w-5 h-5 text-yellow-300 fill-current" />
-            <span>{totalVenues} Premium Venues</span>
+            <span>{totalVenues} {t('hero.venues')}</span>
             <span className="mx-2">•</span>
             <MapPin className="w-5 h-5 text-orange-300" />
-            <span>{totalCities} Cities</span>
+            <span>{totalCities} {t('hero.cities')}</span>
           </div>
         </div>
       </div>

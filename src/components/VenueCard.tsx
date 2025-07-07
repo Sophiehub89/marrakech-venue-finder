@@ -3,6 +3,7 @@ import { Star, MapPin, Phone, Globe, CheckCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 interface VenueCardProps {
   venue: any;
@@ -10,6 +11,7 @@ interface VenueCardProps {
 }
 
 const VenueCard = ({ venue, onClick }: VenueCardProps) => {
+  const { t } = useTranslation();
   const categories = venue.category.split(', ').slice(0, 3);
 
   return (
@@ -90,7 +92,7 @@ const VenueCard = ({ venue, onClick }: VenueCardProps) => {
             onClick={onClick}
             className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white"
           >
-            View Details
+            {t('venue.viewDetails')}
           </Button>
         </div>
       </CardContent>

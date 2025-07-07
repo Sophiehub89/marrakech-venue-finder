@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "Moroccan Wedding Venues",
+    "arabicTitle": "أماكن الزفاف المغربية",
+    "subtitle": "Discover the most enchanting venues for your special day across Morocco",
+    "venues": "Premium Venues",
+    "cities": "Cities"
+  },
+  "search": {
+    "placeholder": "Search venues, cities, or categories...",
+    "showFilters": "Show Filters",
+    "hideFilters": "Hide Filters",
+    "venuesFound": "{{count}} venue found",
+    "venuesFound_plural": "{{count}} venues found",
+    "noVenuesTitle": "No venues found",
+    "noVenuesMessage": "Try adjusting your search criteria or filters"
+  },
+  "filters": {
+    "city": "City",
+    "allCities": "All Cities",
+    "category": "Category",
+    "allCategories": "All Categories",
+    "minRating": "Min Rating",
+    "anyRating": "Any Rating",
+    "stars": "{{count}}+ Stars",
+    "fiveStars": "5 Stars",
+    "priceRange": "Price Range",
+    "anyPrice": "Any Price"
+  },
+  "venue": {
+    "viewDetails": "View Details",
+    "rating": "Rating",
+    "priceRange": "Price Range",
+    "capacity": "Capacity",
+    "guests": "guests",
+    "amenities": "Amenities",
+    "location": "Location",
+    "contact": "Contact Information",
+    "phone": "Phone",
+    "email": "Email",
+    "website": "Website",
+    "backToVenues": "← Back to Venues"
+  },
+  "footer": {
+    "title": "المغرب • Morocco",
+    "subtitle": "Your dream wedding awaits in the most beautiful venues across Morocco"
+  }
+}

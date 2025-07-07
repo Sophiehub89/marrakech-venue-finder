@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "أماكن الزفاف المغربية",
+    "arabicTitle": "أماكن الزفاف المغربية",
+    "subtitle": "اكتشف أجمل الأماكن ليومك المميز عبر المغرب",
+    "venues": "أماكن مميزة",
+    "cities": "مدن"
+  },
+  "search": {
+    "placeholder": "البحث في الأماكن، المدن، أو الفئات...",
+    "showFilters": "إظهار المرشحات",
+    "hideFilters": "إخفاء المرشحات",
+    "venuesFound": "تم العثور على {{count}} مكان",
+    "venuesFound_plural": "تم العثور على {{count}} أماكن",
+    "noVenuesTitle": "لم يتم العثور على أماكن",
+    "noVenuesMessage": "حاول تعديل معايير البحث أو المرشحات"
+  },
+  "filters": {
+    "city": "المدينة",
+    "allCities": "جميع المدن",
+    "category": "الفئة",
+    "allCategories": "جميع الفئات",
+    "minRating": "الحد الأدنى للتقييم",
+    "anyRating": "أي تقييم",
+    "stars": "{{count}}+ نجوم",
+    "fiveStars": "5 نجوم",
+    "priceRange": "نطاق السعر",
+    "anyPrice": "أي سعر"
+  },
+  "venue": {
+    "viewDetails": "عرض التفاصيل",
+    "rating": "التقييم",
+    "priceRange": "نطاق السعر",
+    "capacity": "السعة",
+    "guests": "ضيوف",
+    "amenities": "المرافق",
+    "location": "الموقع",
+    "contact": "معلومات الاتصال",
+    "phone": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "website": "الموقع الإلكتروني",
+    "backToVenues": "← العودة إلى الأماكن"
+  },
+  "footer": {
+    "title": "المغرب • Morocco",
+    "subtitle": "زفاف أحلامك ينتظرك في أجمل الأماكن عبر المغرب"
+  }
+}

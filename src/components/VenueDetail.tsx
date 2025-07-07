@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { useTranslation } from 'react-i18next';
 
 interface VenueDetailProps {
   venue: any;
@@ -11,6 +12,7 @@ interface VenueDetailProps {
 }
 
 const VenueDetail = ({ venue, onBack }: VenueDetailProps) => {
+  const { t } = useTranslation();
   const categories = venue.category.split(', ');
   const amenities = Array.isArray(venue.about) ? venue.about : [];
 
@@ -24,7 +26,7 @@ const VenueDetail = ({ venue, onBack }: VenueDetailProps) => {
           className="mb-6 border-orange-300 text-orange-700 hover:bg-orange-50"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to Directory
+          {t('venue.backToVenues')}
         </Button>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -86,52 +88,52 @@ const VenueDetail = ({ venue, onBack }: VenueDetailProps) => {
               <CardContent>
                 <div className="space-y-6">
                   {/* Categories */}
-                  <div>
-                    <h3 className="font-semibold text-gray-800 mb-3">Categories</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {categories.map((category, index) => (
-                        <Badge
-                          key={index}
-                          variant="secondary"
-                          className="bg-orange-100 text-orange-700 hover:bg-orange-200"
-                        >
-                          {category.trim()}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
+                   <div>
+                     <h3 className="font-semibold text-gray-800 mb-3">{t('filters.category')}</h3>
+                     <div className="flex flex-wrap gap-2">
+                       {categories.map((category, index) => (
+                         <Badge
+                           key={index}
+                           variant="secondary"
+                           className="bg-orange-100 text-orange-700 hover:bg-orange-200"
+                         >
+                           {category.trim()}
+                         </Badge>
+                       ))}
+                     </div>
+                   </div>
 
-                  {/* Description */}
-                  <div>
-                    <h3 className="font-semibold text-gray-800 mb-3">About</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {venue.description}
-                    </p>
-                  </div>
+                   {/* Description */}
+                   <div>
+                     <h3 className="font-semibold text-gray-800 mb-3">About</h3>
+                     <p className="text-gray-600 leading-relaxed">
+                       {venue.description}
+                     </p>
+                   </div>
 
-                  {/* Amenities */}
-                  {amenities.length > 0 && (
-                    <div>
-                      <h3 className="font-semibold text-gray-800 mb-3">Amenities & Features</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        {amenities.map((amenity, index) => (
-                          <div key={index} className="flex items-center text-gray-600">
-                            <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                            <span className="text-sm">{amenity}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                   {/* Amenities */}
+                   {amenities.length > 0 && (
+                     <div>
+                       <h3 className="font-semibold text-gray-800 mb-3">{t('venue.amenities')}</h3>
+                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                         {amenities.map((amenity, index) => (
+                           <div key={index} className="flex items-center text-gray-600">
+                             <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                             <span className="text-sm">{amenity}</span>
+                           </div>
+                         ))}
+                       </div>
+                     </div>
+                   )}
 
-                  {/* Working Hours */}
-                  <div>
-                    <h3 className="font-semibold text-gray-800 mb-3">Working Hours</h3>
-                    <div className="flex items-center text-gray-600">
-                      <Clock className="w-4 h-4 mr-2 text-orange-500" />
-                      <span>{venue.working_hours || 'Please contact for hours'}</span>
-                    </div>
-                  </div>
+                   {/* Working Hours */}
+                   <div>
+                     <h3 className="font-semibold text-gray-800 mb-3">Working Hours</h3>
+                     <div className="flex items-center text-gray-600">
+                       <Clock className="w-4 h-4 mr-2 text-orange-500" />
+                       <span>{venue.working_hours || 'Please contact for hours'}</span>
+                     </div>
+                   </div>
                 </div>
               </CardContent>
             </Card>
@@ -142,14 +144,14 @@ const VenueDetail = ({ venue, onBack }: VenueDetailProps) => {
             {/* Contact Info */}
             <Card className="border-orange-100">
               <CardHeader>
-                <CardTitle className="text-xl">Contact Information</CardTitle>
+                <CardTitle className="text-xl">{t('venue.contact')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {venue.phone && (
                   <div className="flex items-center">
                     <Phone className="w-5 h-5 text-orange-500 mr-3" />
                     <div>
-                      <div className="font-medium">Phone</div>
+                      <div className="font-medium">{t('venue.phone')}</div>
                       <a
                         href={`tel:${venue.phone}`}
                         className="text-orange-600 hover:text-orange-700"
@@ -164,7 +166,7 @@ const VenueDetail = ({ venue, onBack }: VenueDetailProps) => {
                   <div className="flex items-center">
                     <Globe className="w-5 h-5 text-orange-500 mr-3" />
                     <div>
-                      <div className="font-medium">Website</div>
+                      <div className="font-medium">{t('venue.website')}</div>
                       <a
                         href={venue.site}
                         target="_blank"
@@ -216,7 +218,7 @@ const VenueDetail = ({ venue, onBack }: VenueDetailProps) => {
             {/* Rating Summary */}
             <Card className="border-orange-100">
               <CardHeader>
-                <CardTitle className="text-xl">Rating Summary</CardTitle>
+                <CardTitle className="text-xl">{t('venue.rating')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-center">

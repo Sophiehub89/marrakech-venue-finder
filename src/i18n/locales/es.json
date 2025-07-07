@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "Lugares de Boda Marroquíes",
+    "arabicTitle": "أماكن الزفاف المغربية",
+    "subtitle": "Descubre los lugares más encantadores para tu día especial en Marruecos",
+    "venues": "Lugares Premium",
+    "cities": "Ciudades"
+  },
+  "search": {
+    "placeholder": "Buscar lugares, ciudades o categorías...",
+    "showFilters": "Mostrar Filtros",
+    "hideFilters": "Ocultar Filtros",
+    "venuesFound": "{{count}} lugar encontrado",
+    "venuesFound_plural": "{{count}} lugares encontrados",
+    "noVenuesTitle": "No se encontraron lugares",
+    "noVenuesMessage": "Intenta ajustar tus criterios de búsqueda o filtros"
+  },
+  "filters": {
+    "city": "Ciudad",
+    "allCities": "Todas las Ciudades",
+    "category": "Categoría",
+    "allCategories": "Todas las Categorías",
+    "minRating": "Calificación Mín",
+    "anyRating": "Cualquier Calificación",
+    "stars": "{{count}}+ Estrellas",
+    "fiveStars": "5 Estrellas",
+    "priceRange": "Rango de Precio",
+    "anyPrice": "Cualquier Precio"
+  },
+  "venue": {
+    "viewDetails": "Ver Detalles",
+    "rating": "Calificación",
+    "priceRange": "Rango de Precio",
+    "capacity": "Capacidad",
+    "guests": "invitados",
+    "amenities": "Comodidades",
+    "location": "Ubicación",
+    "contact": "Información de Contacto",
+    "phone": "Teléfono",
+    "email": "Email",
+    "website": "Sitio Web",
+    "backToVenues": "← Volver a Lugares"
+  },
+  "footer": {
+    "title": "المغرب • Marruecos",
+    "subtitle": "Tu boda de ensueño te espera en los lugares más hermosos de Marruecos"
+  }
+}
