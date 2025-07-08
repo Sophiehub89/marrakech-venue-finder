@@ -1,4 +1,11 @@
 {
+  "routes": {
+    "cities": "المدن"
+  },
+  "breadcrumbs": {
+    "home": "الرئيسية",
+    "cities": "المدن"
+  },
   "hero": {
     "title": "أماكن الزفاف المغربية",
     "arabicTitle": "أماكن الزفاف المغربية",

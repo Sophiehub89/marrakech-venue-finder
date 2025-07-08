@@ -4,6 +4,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { generateVenuePath } from '@/utils/slugify';
+import type { SupportedLanguage } from '@/i18n/config';
 
 interface VenueCardProps {
   venue: any;
@@ -11,7 +14,9 @@ interface VenueCardProps {
 }
 
 const VenueCard = ({ venue, onClick }: VenueCardProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language as SupportedLanguage;
+  const venuePath = generateVenuePath(currentLanguage, venue.city, venue.name);
   const categories = venue.category.split(', ').slice(0, 3);
 
   return (
@@ -89,10 +94,12 @@ const VenueCard = ({ venue, onClick }: VenueCardProps) => {
             )}
           </div>
           <Button 
-            onClick={onClick}
+            asChild
             className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white"
           >
-            {t('venue.viewDetails')}
+            <Link to={venuePath}>
+              {t('venue.viewDetails')}
+            </Link>
           </Button>
         </div>
       </CardContent>

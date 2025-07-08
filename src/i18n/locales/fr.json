@@ -1,4 +1,11 @@
 {
+  "routes": {
+    "cities": "villes"
+  },
+  "breadcrumbs": {
+    "home": "Accueil",
+    "cities": "Villes"
+  },
   "hero": {
     "title": "Lieux de Mariage Marocains",
     "arabicTitle": "أماكن الزفاف المغربية",

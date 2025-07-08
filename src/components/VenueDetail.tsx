@@ -9,9 +9,10 @@ import { useTranslation } from 'react-i18next';
 interface VenueDetailProps {
   venue: any;
   onBack: () => void;
+  showBreadcrumbs?: boolean;
 }
 
-const VenueDetail = ({ venue, onBack }: VenueDetailProps) => {
+const VenueDetail = ({ venue, onBack, showBreadcrumbs = true }: VenueDetailProps) => {
   const { t } = useTranslation();
   const categories = venue.category.split(', ');
   const amenities = Array.isArray(venue.about) ? venue.about : [];

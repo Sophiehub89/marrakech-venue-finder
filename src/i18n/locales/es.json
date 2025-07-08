@@ -1,4 +1,11 @@
 {
+  "routes": {
+    "cities": "ciudades"
+  },
+  "breadcrumbs": {
+    "home": "Inicio",
+    "cities": "Ciudades"
+  },
   "hero": {
     "title": "Lugares de Boda Marroquíes",
     "arabicTitle": "أماكن الزفاف المغربية",

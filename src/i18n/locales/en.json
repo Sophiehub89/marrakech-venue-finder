@@ -1,4 +1,11 @@
 {
+  "routes": {
+    "cities": "cities"
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "cities": "Cities"
+  },
   "hero": {
     "title": "Moroccan Wedding Venues",
     "arabicTitle": "أماكن الزفاف المغربية",
