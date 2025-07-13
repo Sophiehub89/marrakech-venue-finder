@@ -1,5 +1,5 @@
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import VenueDetail from '@/components/VenueDetail';
@@ -11,9 +11,14 @@ import { Button } from '@/components/ui/button';
 import { mockVenues } from '@/data/mockVenues';
 import { generateCitiesPath } from '@/utils/slugify';
 import type { SupportedLanguage } from '@/i18n/config';
+import SEOHead from '@/components/SEO/SEOHead';
+import { generateWebsiteStructuredData } from '@/components/SEO/StructuredData';
+
+// Lazy load components for better performance
+const LazyVenueDetail = lazy(() => import('@/components/VenueDetail'));
 
 const Index = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const currentLanguage = i18n.language as SupportedLanguage;
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCity, setSelectedCity] = useState('all');
@@ -45,12 +50,29 @@ const Index = () => {
     });
   }, [searchTerm, selectedCity, selectedCategory, minRating, priceRange]);
 
+  // Generate homepage SEO data
+  const seoTitle = t('seo.citiesTitle');
+  const seoDescription = t('seo.citiesDescription');
+  const structuredData = generateWebsiteStructuredData(currentLanguage);
+
   if (selectedVenue) {
-    return <VenueDetail venue={selectedVenue} onBack={() => setSelectedVenue(null)} />;
+    return (
+      <Suspense fallback={<div className="min-h-screen animate-pulse bg-muted" />}>
+        <LazyVenueDetail venue={selectedVenue} onBack={() => setSelectedVenue(null)} />
+      </Suspense>
+    );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50">
+    <>
+      <SEOHead
+        title={seoTitle}
+        description={seoDescription}
+        keywords={['Morocco', 'wedding venues', 'mariage', 'زفاف', 'قاعات', 'Marrakech', 'Casablanca']}
+        structuredData={structuredData}
+      />
+      
+      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50 animate-fade-in">
       <HeroSection 
         totalVenues={mockVenues.length}
         totalCities={cities.length}
@@ -91,6 +113,7 @@ const Index = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

@@ -51,5 +51,23 @@
   "footer": {
     "title": "المغرب • Maroc",
     "subtitle": "Votre mariage de rêve vous attend dans les plus beaux lieux du Maroc"
+  },
+  "share": {
+    "button": "Partager",
+    "success": "Partagé avec succès",
+    "successMessage": "Contenu partagé avec succès!",
+    "error": "Échec du partage",
+    "errorMessage": "Échec du partage du contenu. Veuillez réessayer.",
+    "copied": "Lien copié",
+    "copiedMessage": "Lien copié dans le presse-papiers!",
+    "copyLink": "Copier le lien"
+  },
+  "seo": {
+    "venueTitle": "{{venueName}} - Lieu de Mariage à {{city}}, Maroc",
+    "venueDescription": "Réservez {{venueName}} pour votre mariage de rêve à {{city}}. {{description}}",
+    "cityTitle": "Lieux de Mariage à {{city}}, Maroc",
+    "cityDescription": "Découvrez les meilleurs lieux de mariage à {{city}}, Maroc. Trouvez votre lieu parfait pour une célébration inoubliable.",
+    "citiesTitle": "Lieux de Mariage à Travers le Maroc",
+    "citiesDescription": "Explorez les lieux de mariage premium à travers les plus belles villes du Maroc. De Marrakech à Casablanca, trouvez votre lieu de rêve."
   }
 }

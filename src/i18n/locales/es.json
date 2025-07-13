@@ -51,5 +51,23 @@
   "footer": {
     "title": "المغرب • Marruecos",
     "subtitle": "Tu boda de ensueño te espera en los lugares más hermosos de Marruecos"
+  },
+  "share": {
+    "button": "Compartir",
+    "success": "Compartido exitosamente",
+    "successMessage": "¡Contenido compartido exitosamente!",
+    "error": "Error al compartir",
+    "errorMessage": "Error al compartir contenido. Por favor inténtalo de nuevo.",
+    "copied": "Enlace copiado",
+    "copiedMessage": "¡Enlace copiado al portapapeles!",
+    "copyLink": "Copiar enlace"
+  },
+  "seo": {
+    "venueTitle": "{{venueName}} - Lugar de Boda en {{city}}, Marruecos",
+    "venueDescription": "Reserva {{venueName}} para tu boda de ensueño en {{city}}. {{description}}",
+    "cityTitle": "Lugares de Boda en {{city}}, Marruecos",
+    "cityDescription": "Descubre los mejores lugares de boda en {{city}}, Marruecos. Encuentra tu lugar perfecto para una celebración inolvidable.",
+    "citiesTitle": "Lugares de Boda en Todo Marruecos",
+    "citiesDescription": "Explora lugares de boda premium en las ciudades más hermosas de Marruecos. De Marrakech a Casablanca, encuentra tu lugar de ensueño."
   }
 }

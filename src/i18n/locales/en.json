@@ -51,5 +51,23 @@
   "footer": {
     "title": "المغرب • Morocco",
     "subtitle": "Your dream wedding awaits in the most beautiful venues across Morocco"
+  },
+  "share": {
+    "button": "Share",
+    "success": "Shared successfully",
+    "successMessage": "Content shared successfully!",
+    "error": "Share failed",
+    "errorMessage": "Failed to share content. Please try again.",
+    "copied": "Link copied",
+    "copiedMessage": "Link copied to clipboard!",
+    "copyLink": "Copy link"
+  },
+  "seo": {
+    "venueTitle": "{{venueName}} - Wedding Venue in {{city}}, Morocco",
+    "venueDescription": "Book {{venueName}} for your dream wedding in {{city}}. {{description}}",
+    "cityTitle": "Wedding Venues in {{city}}, Morocco",
+    "cityDescription": "Discover the best wedding venues in {{city}}, Morocco. Find your perfect venue for an unforgettable celebration.",
+    "citiesTitle": "Wedding Venues Across Morocco",
+    "citiesDescription": "Explore premium wedding venues across Morocco's most beautiful cities. From Marrakech to Casablanca, find your dream venue."
   }
 }
