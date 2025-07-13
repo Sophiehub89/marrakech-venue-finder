@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - Marrakech Venue Finder</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            max-width: 500px;
+        }
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        .features {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+        .feature h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1rem;
+        }
+        .feature p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">📶</div>
+        <h1>You're Offline</h1>
+        <p>Don't worry! You can still browse previously viewed venues and access cached content while you're offline.</p>
+        
+        <button class="btn" onclick="window.location.reload()">Try Again</button>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>📱 Cached Content</h3>
+                <p>Access venues you've viewed before</p>
+            </div>
+            <div class="feature">
+                <h3>🔍 Search History</h3>
+                <p>Your recent searches are saved</p>
+            </div>
+            <div class="feature">
+                <h3>⭐ Favorites</h3>
+                <p>View your saved venues</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Check for network connection
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+        
+        // Add retry functionality
+        let retryCount = 0;
+        const maxRetries = 3;
+        
+        function checkConnection() {
+            if (navigator.onLine) {
+                window.location.reload();
+            } else if (retryCount < maxRetries) {
+                retryCount++;
+                setTimeout(checkConnection, 5000); // Retry every 5 seconds
+            }
+        }
+        
+        // Start checking for connection
+        setTimeout(checkConnection, 5000);
+    </script>
+</body>
+</html> 

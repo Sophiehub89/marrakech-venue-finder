@@ -69,15 +69,31 @@ const LazyImage = ({
     if (originalSrc.includes('unsplash.com')) {
       const baseUrl = originalSrc.split('?')[0];
       return `
-        ${baseUrl}?w=400&h=300&fit=crop&q=80 400w,
-        ${baseUrl}?w=800&h=600&fit=crop&q=80 800w,
-        ${baseUrl}?w=1200&h=900&fit=crop&q=80 1200w
+        ${baseUrl}?w=300&h=200&fit=crop&q=75&auto=format 300w,
+        ${baseUrl}?w=600&h=400&fit=crop&q=80&auto=format 600w,
+        ${baseUrl}?w=900&h=600&fit=crop&q=85&auto=format 900w,
+        ${baseUrl}?w=1200&h=800&fit=crop&q=90&auto=format 1200w
+      `.replace(/\s+/g, ' ').trim();
+    }
+    return undefined;
+  };
+
+  // Generate WebP format for better compression
+  const generateWebPSrcSet = (originalSrc: string) => {
+    if (originalSrc.includes('unsplash.com')) {
+      const baseUrl = originalSrc.split('?')[0];
+      return `
+        ${baseUrl}?w=300&h=200&fit=crop&q=75&auto=format&fm=webp 300w,
+        ${baseUrl}?w=600&h=400&fit=crop&q=80&auto=format&fm=webp 600w,
+        ${baseUrl}?w=900&h=600&fit=crop&q=85&auto=format&fm=webp 900w,
+        ${baseUrl}?w=1200&h=800&fit=crop&q=90&auto=format&fm=webp 1200w
       `.replace(/\s+/g, ' ').trim();
     }
     return undefined;
   };
 
   const srcSet = generateSrcSet(src);
+  const webPSrcSet = generateWebPSrcSet(src);
 
   return (
     <div ref={placeholderRef} className={cn('relative overflow-hidden', className)}>
@@ -109,28 +125,39 @@ const LazyImage = ({
 
       {/* Actual image */}
       {isInView && (
-        <img
-          ref={imgRef}
-          src={src}
-          srcSet={srcSet}
-          sizes={sizes || '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
-          alt={alt}
-          width={width}
-          height={height}
-          loading={loading}
-          onLoad={handleLoad}
-          onError={handleError}
-          className={cn(
-            'transition-opacity duration-300',
-            isLoaded ? 'opacity-100' : 'opacity-0',
-            className
+        <picture>
+          {webPSrcSet && (
+            <source
+              type="image/webp"
+              srcSet={webPSrcSet}
+              sizes={sizes || '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
+            />
           )}
-          style={{
-            objectFit: 'cover',
-            width: '100%',
-            height: '100%',
-          }}
-        />
+          <img
+            ref={imgRef}
+            src={src}
+            srcSet={srcSet}
+            sizes={sizes || '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
+            alt={alt}
+            width={width}
+            height={height}
+            loading={loading}
+            onLoad={handleLoad}
+            onError={handleError}
+            className={cn(
+              'transition-opacity duration-300 optimized-image',
+              isLoaded ? 'opacity-100' : 'opacity-0',
+              className
+            )}
+            style={{
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+            }}
+            decoding="async"
+            fetchPriority={loading === 'eager' ? 'high' : 'auto'}
+          />
+        </picture>
       )}
     </div>
   );
